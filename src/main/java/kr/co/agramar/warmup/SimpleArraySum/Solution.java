@@ -16,9 +16,9 @@ public class Solution {
          */
     	
     	int sum = 0;
-    	for (int i = 0; i < ar.length; i++) {
-    		sum = sum + ar[i];
-    	}
+        for (int value : ar) {
+            sum = sum + value;
+        }
     	return sum;
     }
 

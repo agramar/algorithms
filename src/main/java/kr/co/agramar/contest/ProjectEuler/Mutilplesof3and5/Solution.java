@@ -13,10 +13,7 @@ public class Solution {
 		int[] ar = new int[t];
 		for (int a0 = 0; a0 < t; a0++) {
 			int n = in.nextInt();
-			if (t < 1 || t > 1000000000) {
-				System.exit(0);
-			}
-			
+
 			int s = 0;
 			for (int i = 3; i < n; i = i + 3) {
 				if (i % 5 == 0) {
