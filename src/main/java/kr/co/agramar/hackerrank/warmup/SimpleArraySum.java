@@ -1,11 +1,11 @@
-package kr.co.agramar.warmup.SimpleArraySum;
+package kr.co.agramar.hackerrank.warmup;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
-public class Solution {
+public class SimpleArraySum {
 
     /*
      * Complete the simpleArraySum function below.

@@ -1,4 +1,4 @@
-package kr.co.agramar.contest.ProjectEuler.Mutilplesof3and5;
+package kr.co.agramar.hackerrank.contest.ProjectEuler.Mutilplesof3and5;
 
 import java.util.Scanner;
 

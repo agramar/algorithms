@@ -1,4 +1,4 @@
-package kr.co.agramar.contest.HourRank31.SurfaceArea3D;
+package kr.co.agramar.hackerrank.contest.HourRank31.SurfaceArea3D;
 
 import java.io.IOException;
 import java.util.Scanner;
