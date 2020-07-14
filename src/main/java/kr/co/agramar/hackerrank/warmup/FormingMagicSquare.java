@@ -8,7 +8,64 @@ import java.util.Scanner;
 public class FormingMagicSquare {
 
     static int formingMagicSquare(int[][] s) {
-        return 0;
+
+        final int[] outerMagicNumbers = {8, 3, 4, 9, 2, 7, 6, 1};
+        final int centerMagicNumber = 5;
+
+        int centerNumberDistance = Math.abs(centerMagicNumber - s[1][1]);
+        int outerNumberMinimumDistance = 100;
+
+        int[] outerNumbers = getOuterNumbers(s);
+
+        for (int i = 0; i < outerNumbers.length; i++) {
+            int sum = 0;
+            for (int j = 0; j < outerNumbers.length; j++) {
+                int onIndex = i + j >= outerNumbers.length ? i + j - outerNumbers.length : i + j;
+                int on = outerNumbers[onIndex];
+                int omn = outerMagicNumbers[j];
+                sum += Math.abs(on - omn);
+            }
+
+            if (sum < outerNumberMinimumDistance) {
+                outerNumberMinimumDistance = sum;
+            }
+        }
+
+        return centerNumberDistance + outerNumberMinimumDistance;
+    }
+
+    private static int[] getOuterNumbers(int[][] s) {
+        int outerNumbersLength = s.length * 2 + s[0].length * 2 - 4;
+        int[] outerNumbers = new int[outerNumbersLength];
+
+        int outerNumbersIndex = 0;
+        int rowIndex = 0;
+        int colIndex = 0;
+        while (s.length > colIndex) {
+            outerNumbers[outerNumbersIndex] = s[rowIndex][colIndex];
+            outerNumbersIndex++;
+            colIndex++;
+        }
+        colIndex--;
+
+        while (s[0].length > rowIndex + 1) {
+            rowIndex++;
+            outerNumbers[outerNumbersIndex] = s[rowIndex][colIndex];
+            outerNumbersIndex++;
+        }
+
+        while (0 < colIndex) {
+            colIndex--;
+            outerNumbers[outerNumbersIndex] = s[rowIndex][colIndex];
+            outerNumbersIndex++;
+        }
+
+        while (0 < rowIndex - 1) {
+            rowIndex--;
+            outerNumbers[outerNumbersIndex] = s[rowIndex][colIndex];
+            outerNumbersIndex++;
+        }
+        return outerNumbers;
     }
 
     private static final Scanner scanner = new Scanner(System.in);
