@@ -9,33 +9,53 @@ public class FormingMagicSquare {
 
     static int formingMagicSquare(int[][] s) {
 
-        final int[] outerMagicNumbers = {8, 3, 4, 9, 2, 7, 6, 1};
         final int centerMagicNumber = 5;
+        int centerNumberCost = Math.abs(centerMagicNumber - s[1][1]);
 
-        int centerNumberDistance = Math.abs(centerMagicNumber - s[1][1]);
-        int outerNumberMinimumDistance = 100;
+        final int[] outerMagicNumbers = {8, 1, 6, 7, 2, 9, 4, 3};
+        final int[] outerMagicNumbersReverseX = {2, 9, 4, 3, 8, 1, 6, 7};
+        final int[] outerMagicNumbersReverseY = {4, 9, 2, 7, 6, 1, 8, 3};
 
         int[] outerNumbers = getOuterNumbers(s);
+        int outerNumberMinimalCost1 = getOuterNumberMinimalCost(outerNumbers, outerMagicNumbers);
+        int outerNumberMinimalCost2 = getOuterNumberMinimalCost(outerNumbers, outerMagicNumbersReverseX);
+        int outerNumberMinimalCost3 = getOuterNumberMinimalCost(outerNumbers, outerMagicNumbersReverseY);
 
-        for (int i = 0; i < outerNumbers.length; i++) {
+        int outerNumberMinimalCost = Math.min(Math.min(outerNumberMinimalCost1, outerNumberMinimalCost2), outerNumberMinimalCost3);
+
+        return centerNumberCost + outerNumberMinimalCost;
+    }
+
+    private static int getOuterNumberMinimalCost(int[] outerNumbers, int[] outerMagicNumbers) {
+
+        int outerNumberMinimalCost = Integer.MAX_VALUE;
+
+        for (int i = 0; i < outerMagicNumbers.length; i+= 2) {
+
             int sum = 0;
+
             for (int j = 0; j < outerNumbers.length; j++) {
-                int onIndex = i + j >= outerNumbers.length ? i + j - outerNumbers.length : i + j;
-                int on = outerNumbers[onIndex];
-                int omn = outerMagicNumbers[j];
-                sum += Math.abs(on - omn);
+
+                int outerNumber = outerNumbers[j];
+
+                int outerMagicNumberIndex = i + j >= outerMagicNumbers.length ? i + j - outerMagicNumbers.length : i + j;
+                int outerMagicNumber = outerMagicNumbers[outerMagicNumberIndex];
+
+                sum += Math.abs(outerNumber - outerMagicNumber);
             }
 
-            if (sum < outerNumberMinimumDistance) {
-                outerNumberMinimumDistance = sum;
+            if (sum < outerNumberMinimalCost) {
+                outerNumberMinimalCost = sum;
             }
         }
 
-        return centerNumberDistance + outerNumberMinimumDistance;
+        return outerNumberMinimalCost;
     }
 
     private static int[] getOuterNumbers(int[][] s) {
+
         int outerNumbersLength = s.length * 2 + s[0].length * 2 - 4;
+
         int[] outerNumbers = new int[outerNumbersLength];
 
         int outerNumbersIndex = 0;
@@ -65,6 +85,7 @@ public class FormingMagicSquare {
             outerNumbers[outerNumbersIndex] = s[rowIndex][colIndex];
             outerNumbersIndex++;
         }
+
         return outerNumbers;
     }
 
