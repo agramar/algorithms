@@ -1,4 +1,4 @@
-package kr.co.agramar.test;
+package kr.co.agramar.programmers.etc;
 
 public class Test05 {
 

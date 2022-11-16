@@ -4,4 +4,5 @@
 .idea
 /build/
 /.gradle/
+/out/
 src/main/resources/META-INF/plugin.xml

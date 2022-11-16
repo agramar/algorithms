@@ -1,4 +1,4 @@
-package kr.co.agramar.test;
+package kr.co.agramar.programmers.etc;
 
 import java.util.Arrays;
 
