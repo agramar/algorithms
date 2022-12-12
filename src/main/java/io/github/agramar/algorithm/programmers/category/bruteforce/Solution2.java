@@ -8,8 +8,7 @@ import java.util.stream.Collectors;
 public class Solution2 {
     public int solution(String numbers) {
 
-        List<String> numberList = Arrays.stream(numbers.split(""))
-                .collect(Collectors.toList());
+        List<String> numberList = Arrays.stream(numbers.split("")).toList();
 
 
         List<String> allCases = new ArrayList<>();

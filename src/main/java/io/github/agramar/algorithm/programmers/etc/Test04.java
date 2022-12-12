@@ -40,7 +40,7 @@ public class Test04 {
             nList.add(Long.parseLong(nString.substring(i, i + 1)));
         }
 
-        return new Long(nList.stream()
+        return Long.parseLong(nList.stream()
                 .sorted(Comparator.reverseOrder())
                 .map(String::valueOf)
                 .collect(Collectors.joining()));
