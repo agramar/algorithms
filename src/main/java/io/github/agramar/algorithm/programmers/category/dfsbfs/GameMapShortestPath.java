@@ -51,41 +51,42 @@ public class GameMapShortestPath {
             }
         }
     }
+
+    static class Node {
+        private final int x;
+        private final int y;
+        private final int depth;
+
+        public Node(int x, int y, int depth) {
+            this.x = x;
+            this.y = y;
+            this.depth = depth;
+        }
+
+        public int getX() {
+            return x;
+        }
+
+        public int getY() {
+            return y;
+        }
+
+        public int getDepth() {
+            return depth;
+        }
+
+        public int getLastDepth(int[][] maps) {
+            return x != maps.length - 1 || y != maps[0].length - 1 ? -1 : depth;
+        }
+
+        @Override
+        public String toString() {
+            return "Node{" +
+                    "x=" + x +
+                    ", y=" + y +
+                    ", depth=" + depth +
+                    '}';
+        }
+    }
 }
 
-class Node {
-    private final int x;
-    private final int y;
-    private final int depth;
-
-    public Node(int x, int y, int depth) {
-        this.x = x;
-        this.y = y;
-        this.depth = depth;
-    }
-
-    public int getX() {
-        return x;
-    }
-
-    public int getY() {
-        return y;
-    }
-
-    public int getDepth() {
-        return depth;
-    }
-
-    public int getLastDepth(int[][] maps) {
-        return x != maps.length - 1 || y != maps[0].length - 1 ? -1 : depth;
-    }
-
-    @Override
-    public String toString() {
-        return "Node{" +
-                "x=" + x +
-                ", y=" + y +
-                ", depth=" + depth +
-                '}';
-    }
-}
