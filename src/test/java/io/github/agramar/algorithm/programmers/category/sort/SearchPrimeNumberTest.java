@@ -3,7 +3,7 @@ package io.github.agramar.algorithm.programmers.category.sort;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-class Solution2Test {
+class SearchPrimeNumberTest {
 
     Solution2 solution2 = new Solution2();
 

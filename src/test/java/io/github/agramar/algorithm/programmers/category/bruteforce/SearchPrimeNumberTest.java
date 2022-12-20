@@ -3,16 +3,16 @@ package io.github.agramar.algorithm.programmers.category.bruteforce;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-class Solution2Test {
+class SearchPrimeNumberTest {
 
-    Solution2 solution = new Solution2();
+    SearchPrimeNumber searchPrimeNumber = new SearchPrimeNumber();
 
 
     @Test
     void case1() {
         String numbers = "17";
 
-        int actual = solution.solution(numbers);
+        int actual = searchPrimeNumber.solution(numbers);
 
         int expected = 3;
 
@@ -23,7 +23,7 @@ class Solution2Test {
     void case2() {
         String numbers = "011";
 
-        int actual = solution.solution(numbers);
+        int actual = searchPrimeNumber.solution(numbers);
 
         int expected = 2;
 
