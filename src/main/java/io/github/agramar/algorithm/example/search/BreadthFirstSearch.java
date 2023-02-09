@@ -6,7 +6,7 @@ import java.util.Queue;
 public class BreadthFirstSearch {
 
     /**
-     * Queue를 이용한 BFS구현
+     * Queue 를 이용한 BFS 구현
      */
     public void bfsByQueue(int[][] graph, boolean[] visited, int nodeIndex) {
         Queue<Integer> queue = new LinkedList<>();

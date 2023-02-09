@@ -6,7 +6,7 @@ package io.github.agramar.algorithm.example.search;
 public class Permutation {
 
     /**
-     * visited를 활용해 순서 대로 n개 중에서 r개를 뽑는 경우
+     * visited 를 활용해 순서 대로 n개 중에서 r개를 뽑는 경우
      */
     public void permutationByVisited(int[] arr, int depth, int r, boolean[] visited, int[] output) {
         if (depth == r) {
@@ -26,7 +26,7 @@ public class Permutation {
     }
 
     /**
-     * swap을 활용해 순서 관계 없이 n개 중에서 r개를 뽑는 경우
+     * swap 을 활용해 순서 관계 없이 n개 중에서 r개를 뽑는 경우
      */
     public void permutationBySwap(int[] arr, int depth, int r) {
         if (depth == r) {
